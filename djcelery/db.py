@@ -49,12 +49,8 @@ else:
     @contextmanager
     def commit_on_success(using=None):  # noqa
         connection = transaction.get_connection(using)
-        if connection.features.autocommits_when_autocommit_is_off:
-            # ignore stupid warnings and errors
+        with transaction.atomic(using):
             yield
-        else:
-            with transaction.atomic(using):
-                yield
 
     def commit_unless_managed(*args, **kwargs):  # noqa
         pass
