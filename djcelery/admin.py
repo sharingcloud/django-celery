@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 
-from anyjson import loads
+from json import loads
 
 from django import forms
 from django.conf import settings

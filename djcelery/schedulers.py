@@ -4,7 +4,7 @@ import logging
 
 from multiprocessing.util import Finalize
 
-from anyjson import loads, dumps
+from json import loads, dumps
 from celery import current_app
 from celery import schedules
 from celery.beat import Scheduler, ScheduleEntry
