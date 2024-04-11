@@ -4,7 +4,7 @@
 
 .. image:: https://user-images.githubusercontent.com/26336/59113881-917c5180-890b-11e9-9863-f5a98d0e235e.png
 
-:Version: 4.1.0sc
+:Version: 4.2.0sc
 :Web: http://celeryproject.org/
 :Download: http://pypi.python.org/pypi/django-celery/
 :Source: http://github.com/celery/django-celery/
@@ -126,7 +126,7 @@ Mailing list
 ------------
 
 For discussions about the usage, development, and future of celery,
-please join the `celery-users`_ mailing list. 
+please join the `celery-users`_ mailing list.
 
 .. _`celery-users`: http://groups.google.com/group/celery-users/
 

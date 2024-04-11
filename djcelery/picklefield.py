@@ -25,10 +25,7 @@ from kombu.utils.encoding import bytes_to_str, str_to_bytes
 
 from django.db import models
 
-try:
-    from django.utils.encoding import force_text
-except ImportError:
-    from django.utils.encoding import force_unicode as force_text  # noqa
+from django.utils.encoding import force_str
 
 DEFAULT_PROTOCOL = 2
 
@@ -101,7 +98,7 @@ class PickledObjectField(BaseField):
 
     def get_db_prep_value(self, value, **kwargs):
         if value is not None and not isinstance(value, PickledObject):
-            return force_text(encode(value, self.compress, self.protocol))
+            return force_str(encode(value, self.compress, self.protocol))
         return value
 
     def value_to_string(self, obj):

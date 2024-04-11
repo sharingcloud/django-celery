@@ -10,7 +10,7 @@ from django.contrib.admin.views import main as main_views
 from django.forms.widgets import Select
 from django.shortcuts import render
 from django.utils.html import escape, format_html, mark_safe
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from celery import current_app
 from celery import states
@@ -27,10 +27,7 @@ from .models import (
 from .humanize import naturaldate
 from .utils import is_database_scheduler, make_aware
 
-try:
-    from django.utils.encoding import force_text
-except ImportError:
-    from django.utils.encoding import force_unicode as force_text  # noqa
+from django.utils.encoding import force_str
 
 
 TASK_STATE_COLORS = {states.SUCCESS: 'green',
@@ -192,7 +189,7 @@ class TaskMonitor(ModelMonitor):
         context = {
             'title': _('Rate limit selection'),
             'queryset': queryset,
-            'object_name': force_text(opts.verbose_name),
+            'object_name': force_str(opts.verbose_name),
             'action_checkbox_name': helpers.ACTION_CHECKBOX_NAME,
             'opts': opts,
             'app_label': app_label,
